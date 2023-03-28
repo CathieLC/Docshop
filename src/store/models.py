@@ -26,3 +26,19 @@ class Product(models.Model):
         return reverse("products", kwargs={"slug": self.slug})
 
 
+#Articles (Order)
+"""
+- Utilisateur
+- Produit
+- Quantité
+- Commandé ou non
+"""
+
+#Panier (Cart)
+"""
+- Utilisateur
+- Articles du panier
+- Quantité
+- Commandé ou non
+- Date de la commande
+"""

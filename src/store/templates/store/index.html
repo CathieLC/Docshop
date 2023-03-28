@@ -2,18 +2,31 @@
 
 {% block content %}
 
-    {% for product in produits %}
+    {% if user.is_authenticated %}
 
-        <a href="{% url 'products' product.slug %}">
-            <h2>{{ product.name  }}</h2>
-        </a>
+        {% for product in produits %}
 
-        <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="max-width: 200px;"><br>
+            <a href="{% url 'products' product.slug %}">
+                <h2>{{ product.name  }}</h2>
+            </a>
 
-        <!--<a href="{% url 'products' product.slug %}">Détails de l'article</a>! Je remplace cette url par celle du dessous-->
-        <!--Je remplace l'url du dessus par l'url en dessous-->
-        <a href="{{ product.get_absolute_url }}">Détails de l'article</a>
+            <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="max-width: 200px;"><br>
 
-    {% endfor %}
+            <!--<a href="{% url 'products' product.slug %}">Détails de l'article</a>! Je remplace cette url par celle du dessous-->
+            <!--Je remplace l'url du dessus par l'url en dessous-->
+            <a href="{{ product.get_absolute_url }}">Détails de l'article</a>
+
+        {% endfor %}
+
+        {% else %}
+            <h2> Désolé, tu n'es pas connecté</h2>
+            <button>
+                <a href="{% url 'login' %}">Se connecter</a>
+            </button>
+            <button>
+                <a href="{% url 'signup' %}">Inscription</a>
+            </button>
+
+    {% endif %}
 
 {% endblock %}

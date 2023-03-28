@@ -17,9 +17,7 @@
             <button>
                 <a href="{% url 'logout' %}">Déconnexion ({{ user.username }})</a>
             </button>
-    {% else %}
-
-    {% endif %}
+        {% endif %}
 
     {% block content %}
     {% endblock %}
