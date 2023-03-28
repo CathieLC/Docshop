@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> La boutique de Sneakers</h1>
+
+{% for product in produits %}
+    <h2>{{ product.name  }}</h2>
+    <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="max-width: 200px;">
+{% endfor %}
+
+
+
+{% endblock %}
