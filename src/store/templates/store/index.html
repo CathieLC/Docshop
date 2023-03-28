@@ -1,13 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1> La boutique de Sneakers</h1>
 
-{% for product in produits %}
-    <h2>{{ product.name  }}</h2>
-    <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="max-width: 200px;">
-{% endfor %}
+    {% for product in produits %}
 
+        <a href="{% url 'products' product.slug %}">
+            <h2>{{ product.name  }}</h2>
+        </a>
 
+        <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="max-width: 200px;"><br>
+
+        <!--<a href="{% url 'products' product.slug %}">Détails de l'article</a>! Je remplace cette url par celle du dessous-->
+        <!--Je remplace l'url du dessus par l'url en dessous-->
+        <a href="{{ product.get_absolute_url }}">Détails de l'article</a>
+
+    {% endfor %}
 
 {% endblock %}

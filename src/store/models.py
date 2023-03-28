@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 """
 - Nom (text)
@@ -20,3 +21,8 @@ class Product(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.stock} en stock)" # on veut le nom de l'article et le nombre en stock
+
+    def get_absolute_url(self): # va me rajouter un boutons dans admin/products/nom du produit => Voir sur le site
+        return reverse("products", kwargs={"slug": self.slug})
+
+

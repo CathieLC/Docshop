@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+
+    {% else %}
+        <h3>Bonjour, bienvenue dans la boutique de Sneakers</h3>
+        <button>
+            <a href="{% url 'login' %}">Se connecter</a>
+        </button>
+        <button>
+            <a href="{% url 'signup' %}">Inscription</a>
+        </button>
+    {% endif %}
+
+{% endblock %}
