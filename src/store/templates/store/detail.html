@@ -9,6 +9,22 @@
         <img src ="{{ product_detail.thumbnail.url }}" alt="{{ product_detail.name }}" style="max-width: 200px;">
         <p>{{ product_detail.description }}</p>
         <p>Il en reste {{ product_detail.stock }} en stock</p>
+        <button>
+            <a href="{% url 'add-to-cart' product_detail.slug %}">+</a>
+        </button>
+
+            {% for order in orders %}
+                <h3>{{ order.quantity }}</h3>
+           {% endfor %}
+
+        <button>
+            <a href="{% url 'remove-to-cart' product_detail.slug %}">-</a>
+        </button>
+
+
+
+
+
 
     {% else %}
         <h2> Désolé, tu n'es pas connecté</h2>

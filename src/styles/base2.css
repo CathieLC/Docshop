@@ -1,0 +1,96 @@
+  body {
+    background-image: url("base/background.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+
+
+h1 {
+    background-color: black;
+    color: white;
+    text-align : center;
+    margin-right: 150px;
+    margin-left : 150px;
+    margin-bottom : 80px;
+}
+
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    text-align : center;
+  }
+
+.columns_cart{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    text-align : center;
+    margin : 80px;
+    margin-bottom : 40px;
+    margin-right: 350px;
+    margin-left : 350px;
+}
+
+.image_cart {
+
+  display: flex;
+  align-items: center;
+  vertical-align: top;
+  justify-content: center;
+  margin-bottom : 40px;
+
+}
+
+.contenu_cart {
+    display: flex;
+    margin-bottom : 40px;
+
+}
+
+/*.image_index {
+  display: flex;
+  align-items: center;
+  vertical-align: top;
+  justify-content: center;
+}*/
+
+
+button {
+    border-radius: 8px;
+    border: 2px solid #008CBA;
+    font-size: 16px;
+    margin-bottom : 40px;
+}
+
+.signout {
+    font-size: 16px;
+    display: inline-block;
+    text-align : center;
+
+}
+
+
+.delete_cart {
+    text-align : center;
+    font-size : 150%;
+
+}
+
+
+
+table {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  align-content: start;
+  border-collapse: collapse;
+
+}
+
+td {
+  border: 4px solid blue;
+  padding: 60px;
+  align-content: start;
+
+}
+

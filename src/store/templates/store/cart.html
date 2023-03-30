@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+
+        <div class="columns_cart">
+            <h2>Image</h2>
+            <h2>Produit</h2>
+            <h2>Quantité commandée</h2>
+        </div>
+
+        <div class="columns_cart">
+            {% for order in orders %}
+                <div class="image_cart">
+                    <img src ="{{ order.product.thumbnail.url }}" alt="{{ order.product.name }}" style="max-width: 100px;">
+                </div>
+                <h3> {{ order.product.name }}</h3>
+                <h3>{{ order.quantity }}</h3>
+           {% endfor %}
+        <div>
+
+
+
+    {% else %}
+        <h2> Désolé, tu n'es pas connecté</h2>
+        <button>
+            <a href="{% url 'login' %}">Se connecter</a>
+        </button>
+        <button>
+            <a href="{% url 'signup' %}">Inscription</a>
+        </button>
+    {% endif %}
+
+{% endblock %}

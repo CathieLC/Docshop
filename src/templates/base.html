@@ -1,7 +1,10 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <!--<link href="{% static 'base.css' %}" rel="stylesheet" type="text/css">!-->
     <title>La boutique de Sneakers</title>
 </head>
 <body>
@@ -9,15 +12,26 @@
     <a href="{% url 'home' %}">
         <h1> La boutique de Sneakers</h1>
     </a>
+        <div class="wrapper">
+            {% if user.is_authenticated %}
+                <div><button>
+                    <a href="{% url 'index' %}">Articles</a>
+                </button></div>
+                <div><button class="signout">
+                    <a href="{% url 'logout' %}">Déconnexion ({{ user.username }})</a>
+                </button></div>
 
-        {% if user.is_authenticated %}
-            <button>
-                <a href="{% url 'index' %}">Articles</a>
-            </button>
-            <button>
-                <a href="{% url 'logout' %}">Déconnexion ({{ user.username }})</a>
-            </button>
-        {% endif %}
+                {% if user.cart %}
+                    <div><button>
+                        <a href="{% url 'cart' %}">Mon Panier ({{ user.cart.orders.count }})</a>
+                    </button></div>
+                    <div class="delete_cart">
+                    <a href="{% url 'delete-cart' %}">Vider le panier (+sauvegarde)</a>
+                    </div>
+                {% endif %}
+
+            {% endif %}
+        </div>
 
     {% block content %}
     {% endblock %}

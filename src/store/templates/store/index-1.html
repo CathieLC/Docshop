@@ -3,30 +3,30 @@
 {% block content %}
 
     {% if user.is_authenticated %}
-<div class="wrapper">
-    {% for product in produits %}
-        <table>
-            <tr>
-                <td>
+        <div class="wrapper">
+
+            {% for product in produits %}
+                <div>
                     <a href="{% url 'products' product.slug %}">
                         <h2>{{ product.name  }}</h2></a>
-                    <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="max-width: 200px;">
-                </td>
-            </tr>
+
+                    <div class="image_index">
+                        <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="max-width: 200px;">
+                    </div>
+
                 <!--<a href="{% url 'products' product.slug %}">Détails de l'article</a>! Je remplace cette url par celle du dessous-->
                 <!--Je remplace l'url du dessus par l'url en dessous-->
 
-            <tr>
-                <td>
-                    <a href="{{ product.get_absolute_url }}">Détails de l'article</a>
-                    <button>
-                        <a href="{% url 'add-to-cart' product.slug %}">Ajouter au panier</a>
-                    </button>
-                </td>
-            </tr>
-        </table>
+                    <p>
+                        <a href="{{ product.get_absolute_url }}">Détails de l'article</a></p>
+                    <p>
+                        <button>
+                            <a href="{% url 'add-to-cart' product.slug %}">Ajouter au panier</a>
+                        </button>
+                    </p>
+                </div>
             {% endfor %}
-</div>
+         </div>
 
     {% else %}
         <h2> Désolé, tu n'es pas connecté</h2>
