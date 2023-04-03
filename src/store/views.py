@@ -31,7 +31,7 @@ def add_to_cart(request, slug):
 
     # le _ est une variable nécessaire pour le get or create qui récupère deux objets mais par convention,
     # c'est une variable qui ne sera pas utlisée dans la suite de mon code
-    cart, _ = Cart.objects.get_or_create(user=user) #si le panier n'existe pas il sera créé
+    cart, _ = Cart.objects.get_or_create(user=user) # si le panier n'existe pas il sera créé
 
     # order ce sera l'article à récupérer si il existe déjà dans le panier
     # created permettra à l'article d'être créé dans le panier si ce n'est pas le cas
@@ -42,7 +42,7 @@ def add_to_cart(request, slug):
         cart.orders.add(order)
         cart.save()
     else:
-        order.quantity +=1
+        order.quantity += 1
         order.save()
 
     return redirect(reverse("products", kwargs={"slug": slug}))
