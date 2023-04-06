@@ -45,7 +45,8 @@ def add_to_cart(request, slug):
         order.quantity += 1
         order.save()
 
-    return redirect(reverse("products", kwargs={"slug": slug}))
+    #return redirect(reverse("products", kwargs={"slug": slug}))
+    return redirect("index")
 
 
 #essai retrait du panier
